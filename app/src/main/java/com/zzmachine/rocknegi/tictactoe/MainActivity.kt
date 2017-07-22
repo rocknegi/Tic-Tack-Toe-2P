@@ -7,6 +7,8 @@ import android.view.View
 
 import android.widget.Button
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 class  MainActivity : AppCompatActivity() {
 
@@ -15,7 +17,31 @@ class  MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    protected fun onClickEvent(view: View) {
+    fun reset(view:View){
+        button1.text=""
+        button2.text=""
+        button3.text=""
+        button4.text=""
+        button5.text=""
+        button6.text=""
+        button7.text=""
+        button8.text=""
+        button9.text=""
+        button1.setBackgroundColor(Color.WHITE)
+        button2.setBackgroundColor(Color.WHITE)
+        button3.setBackgroundColor(Color.WHITE)
+        button4.setBackgroundColor(Color.WHITE)
+        button5.setBackgroundColor(Color.WHITE)
+        button6.setBackgroundColor(Color.WHITE)
+        button7.setBackgroundColor(Color.WHITE)
+        button8.setBackgroundColor(Color.WHITE)
+        button9.setBackgroundColor(Color.WHITE)
+
+    }
+
+
+
+     fun onClickEvent(view: View) {
         val buttonSelected = view as Button
         var selectId = 0
         when (buttonSelected.id) {
@@ -28,6 +54,7 @@ class  MainActivity : AppCompatActivity() {
             R.id.button7 -> selectId = 7
             R.id.button8 -> selectId = 8
             R.id.button9 -> selectId = 9
+
         }
        // Toast.makeText(this, "ID:" + selectId, Toast.LENGTH_LONG).show()
         playGame(selectId,buttonSelected)
@@ -40,6 +67,7 @@ class  MainActivity : AppCompatActivity() {
 
         if (activePlayer==1){
             buttonSelected.text="X"
+
             buttonSelected.setBackgroundColor(Color.GREEN)
             player1.add(selectId)
             activePlayer=2
